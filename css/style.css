@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+  list-style: none;
+}
+
+.wrap {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+h1 {
+  padding: 15px;
+}
+
+li {
+  padding: 15px;
+}
+
+button {
+  padding: 5px;
+}
