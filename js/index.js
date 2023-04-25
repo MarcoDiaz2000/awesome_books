@@ -1,18 +1,19 @@
 function createBookElement(title, author, id) {
   return `
-    <div id="${id}">
-      <p>Title: ${title}<br>Author: ${author}</p>
-      <button type="button" onclick="removeBook('${id}')">Remove</button>
-      <hr/>
-    </div>`;
+    <tr id="${id}">
+      <td class="book-info"> "${title}" by ${author}</td>
+      <td class="remove-button">
+        <button type="button" onclick="removeBook('${id}')">Remove</button>
+      </td>
+    </tr>`;
 }
 
 // eslint-disable-next-line no-unused-vars
 function loadData() {
-  const data = document.getElementById('data');
+  const tbody = document.querySelector('#data tbody');
   const books = JSON.parse(localStorage.getItem('books')) || [];
   books.forEach((book) => {
-    data.innerHTML += createBookElement(book.title, book.author, book.id);
+    tbody.innerHTML += createBookElement(book.title, book.author, book.id);
   });
 }
 
@@ -21,8 +22,8 @@ function addBook() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const id = new Date().getTime().toString();
-  const data = document.getElementById('data');
-  data.innerHTML += createBookElement(title, author, id);
+  const tbody = document.querySelector('#data tbody');
+  tbody.innerHTML += createBookElement(title, author, id);
 
   const books = JSON.parse(localStorage.getItem('books')) || [];
   books.push({ title, author, id });
@@ -31,9 +32,9 @@ function addBook() {
 
 // eslint-disable-next-line no-unused-vars
 function removeBook(id) {
-  const data = document.getElementById('data');
+  const tbody = document.querySelector('#data tbody');
   const book = document.getElementById(id);
-  data.removeChild(book);
+  tbody.removeChild(book);
 
   const books = JSON.parse(localStorage.getItem('books')) || [];
   const updatedBooks = books.filter((book) => book.id !== id);

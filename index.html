@@ -6,23 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awesome books</title>
     <link rel="stylesheet" href="css/style.css" />
-
 </head>
 <body onload="loadData()">
     <div class="wrap">
-        <h1>Awesome books</h1>
-        
-        <div id="data"></div>
+        <h1>All awesome books</h1>
+        <table id="data">
+            <tbody>
+            </tbody>
+        </table>
         <hr/>
+        <h1>Add a new box</h1>
         <form action="" method="get" id="awesomebook">
             <ul>
                 <li>
-                    <input type="text" id="title" name="title" placeholder="Title"/>
+                    <input type="text" id="title" name="title" placeholder="Title" class="box-form"/>
                 </li>
                 <li>
-                    <input type="text" id="author" name="author" placeholder="Author"/>
+                    <input type="text" id="author" name="author" placeholder="Author" class="box-form"/>
                 </li>
-                <li> 
+                <li class="btn-form"> 
                     <button type="button" onclick="addBook()">Add</button>
                 </li>
             </ul>
@@ -30,5 +32,4 @@
     </div>
     <script src="js/index.js"></script>
 </body>
-
 </html>
