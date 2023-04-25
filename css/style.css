@@ -22,7 +22,7 @@ li {
   padding: 15px;
 }
 
-imput {
+input {
   border: 4px solid;
 }
 
@@ -69,5 +69,5 @@ hr {
 }
 
 #data tr:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: #fff;
 }
