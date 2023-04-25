@@ -1,38 +1,38 @@
 function loadData() {
   const data = document.getElementById('data');
-  if (localStorage.getItem('books')) {
-    data.innerHTML = localStorage.getItem('books');
-  }
+  const books = JSON.parse(localStorage.getItem('books')) || [];
+  books.forEach(book => {
+    data.innerHTML += createBookElement(book.title, book.author, book.id);
+  });
 }
 
 function addBook() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
+  const id = new Date().getTime().toString();
   const data = document.getElementById('data');
-  const id = new Date().getTime();
-  const book = `
-      <div id="${id}">
-        <p>Title: ${title}<br>Author: ${author}</p>
-        <button type="button" onclick="removeBook(${id})">Remove</button>
-        <hr/>
-      </div>`;
-  data.innerHTML += book;
-  localStorage.setItem('books', data.innerHTML);
+  data.innerHTML += createBookElement(title, author, id);
+
+  const books = JSON.parse(localStorage.getItem('books')) || [];
+  books.push({ title, author, id });
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
+function createBookElement(title, author, id) {
+  return `
+    <div id="${id}">
+      <p>Title: ${title}<br>Author: ${author}</p>
+      <button type="button" onclick="removeBook('${id}')">Remove</button>
+      <hr/>
+    </div>`;
 }
 
 function removeBook(id) {
   const data = document.getElementById('data');
   const book = document.getElementById(id);
   data.removeChild(book);
-  const newData = data.innerHTML;
-  localStorage.setItem('books', newData);
-}
 
-window.onload = () => {
-  const a = loadData;
-  const b = addBook;
-  const c = removeBook;
-  console.log(a);
-  console.log(b);
-  console.log(c);
-};
+  const books = JSON.parse(localStorage.getItem('books')) || [];
+  const updatedBooks = books.filter(book => book.id !== id);
+  localStorage.setItem('books', JSON.stringify(updatedBooks));
+}
