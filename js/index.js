@@ -24,6 +24,7 @@ class BookManager {
   static loadData() {
     const tbody = document.querySelector('tbody');
     const books = JSON.parse(localStorage.getItem('books')) || [];
+    console.log(books);
     books.forEach((bookData) => {
       const book = new Book(bookData.title, bookData.author, bookData.id);
       tbody.innerHTML += BookManager.createBookElement(book);
@@ -51,23 +52,35 @@ class BookManager {
     const updatedBooks = books.filter((bookData) => bookData.id !== id);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
   }
-  list1(){
-    console.log("i am in list1");
-    lst.classList.add("lstClass");
-  }
-  cnt(){
-    console.log("i am in contactus");
-    document.getElementById("wrapId").classList.remove("wrap");
-    document.getElementById("wrapId").classList.add("nowrap");
-    cont.classList.add("contClass");
-    document.getElementById("cntID").classList.remove("noLstClass");
 
+  list1() {
+    console.log('i am in list1');
+    document.getElementById('bookListId').classList.add('bookList');
+    document.getElementById('bookListId').classList.remove('nobookList');
+    document.getElementById('wrapId').classList.add('nowrap');
+    document.getElementById('wrapId').classList.remove('wrap');
+    document.getElementById('addNewID').classList.remove('lstClass');
+    document.getElementById('addNewID').classList.add('noLstClass');
   }
-  addBook(){
-    console.log("i am in addBook");
-    document.getElementById("wrapId").classList.remove("nowrap");
-    document.getElementById("wrapId").classList.add("wrap");
-    document.getElementById("cntID").classList.add("noLstClass");
+
+  cnt() {
+    console.log('i am in contactus');
+    document.getElementById('wrapId').classList.remove('wrap');
+    document.getElementById('wrapId').classList.add('nowrap');
+    document.getElementById('addNewID').classList.add('lstClass');
+    document.getElementById('addNewID').classList.remove('noLstClass');
+    document.getElementById('bookListId').classList.remove('bookList');
+    document.getElementById('bookListId').classList.add('nobookList');
+  }
+
+  addBook1() {
+    console.log('i am in addBook1');
+    document.getElementById('wrapId').classList.remove('nowrap');
+    document.getElementById('wrapId').classList.add('wrap');
+    document.getElementById('addNewID').classList.remove('lstClass');
+    document.getElementById('addNewID').classList.add('noLstClass');
+    document.getElementById('bookListId').classList.remove('bookList');
+    document.getElementById('bookListId').classList.add('nobookList');
   }
 }
 
@@ -82,7 +95,7 @@ cont.addEventListener('click', () => {
 });
 
 addBo.addEventListener('click', () => {
-  bookManager.addBook();
+  bookManager.addBook1();
 });
 
 function removeBookWrapper(id) {

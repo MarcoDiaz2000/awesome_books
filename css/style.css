@@ -101,6 +101,9 @@ h1{border:2px solid green;}
 .noLstClass{
   display: none;
 }
+.nobookList{
+  display: none;
+}
 .cntSection{
   margin-top: 40px;
 }
