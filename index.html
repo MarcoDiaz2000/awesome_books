@@ -7,7 +7,7 @@
     <title>Awesome books</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body onload="loadData()">
+<body onload="bookManager.loadData()">
     <div class="wrap">
         <h1>All awesome books</h1>
         <table id="data">
@@ -25,7 +25,7 @@
                     <input type="text" id="author" name="author" placeholder="Author" class="box-form"/>
                 </li>
                 <li class="btn-form"> 
-                    <button type="button" onclick="addBook()">Add</button>
+                    <button type="button" onclick="bookManager.addBook()">Add</button>
                 </li>
             </ul>
         </form>
