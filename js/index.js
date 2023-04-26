@@ -24,7 +24,6 @@ class BookManager {
   static loadData() {
     const tbody = document.querySelector('tbody');
     const books = JSON.parse(localStorage.getItem('books')) || [];
-    console.log(books);
     books.forEach((bookData) => {
       const book = new Book(bookData.title, bookData.author, bookData.id);
       tbody.innerHTML += BookManager.createBookElement(book);
@@ -41,6 +40,7 @@ class BookManager {
     const books = JSON.parse(localStorage.getItem('books')) || [];
     books.push({ title: book.title, author: book.author, id: book.id });
     localStorage.setItem('books', JSON.stringify(books));
+    alert('Data inserted successfully');
   }
 
   static removeBook(id) {
@@ -54,7 +54,7 @@ class BookManager {
   }
 
   list1() {
-    console.log('i am in list1');
+    this.title = document.getElementById('title').value;
     document.getElementById('bookListId').classList.add('bookList');
     document.getElementById('bookListId').classList.remove('nobookList');
     document.getElementById('wrapId').classList.add('nowrap');
@@ -64,7 +64,7 @@ class BookManager {
   }
 
   cnt() {
-    console.log('i am in contactus');
+    this.title = document.getElementById('title').value;
     document.getElementById('wrapId').classList.remove('wrap');
     document.getElementById('wrapId').classList.add('nowrap');
     document.getElementById('addNewID').classList.add('lstClass');
@@ -74,7 +74,7 @@ class BookManager {
   }
 
   addBook1() {
-    console.log('i am in addBook1');
+    this.title = document.getElementById('title').value;
     document.getElementById('wrapId').classList.remove('nowrap');
     document.getElementById('wrapId').classList.add('wrap');
     document.getElementById('addNewID').classList.remove('lstClass');

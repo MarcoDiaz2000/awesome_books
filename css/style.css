@@ -13,7 +13,8 @@
   margin-top: 100px;
   align-items: center;
 }
-.nowrap{
+
+.nowrap {
   display: none;
 }
 
@@ -74,36 +75,40 @@ hr {
 #data tr:nth-child(odd) {
   background-color: #fff;
 }
-#navBar{
-  border:2px solid black;
+
+#navBar {
+  border: 2px solid black;
 }
-#navUl>li{
+
+#navUl > li {
   display: inline-block;
-  border:2px solid red;
-  float:right;
+  border: 2px solid red;
+  float: right;
   margin-top: -51px;
   margin-left: 10px;
 }
-#logo{
+
+#logo {
   display: inline-block;
 }
 
-h1{border:2px solid green;}
-
-.lstClass{
-  border:4px solid green;
+.lstClass {
+  border: 4px solid green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 100px;
 }
-.noLstClass{
+
+.noLstClass {
   display: none;
 }
-.nobookList{
+
+.nobookList {
   display: none;
 }
-.cntSection{
+
+.cntSection {
   margin-top: 40px;
 }
