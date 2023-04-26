@@ -1,19 +1,28 @@
+class Book {
+  constructor(title, author, id) {
+    this.title = title;
+    this.author = author;
+    this.id = id;
+  }
+}
+
 class BookManager {
-  createBookElement(title, author, id) {
+  static createBookElement(book) {
     return `
-      <tr id="${id}">
-        <td class="book-info"> "${title}" by ${author}</td>
+      <tr id="${book.id}">
+        <td class="book-info"> "${book.title}" by ${book.author}</td>
         <td class="remove-button">
-          <button type="button" onclick="bookManager.removeBook('${id}')">Remove</button>
+          <button type="button" onclick="removeBookWrapper('${book.id}')">Remove</button>
         </td>
       </tr>`;
   }
 
   loadData() {
-    const tbody = document.querySelector('#data tbody');
+    const tbody = document.querySelector('tbody');
     const books = JSON.parse(localStorage.getItem('books')) || [];
-    books.forEach((book) => {
-      tbody.innerHTML += this.createBookElement(book.title, book.author, book.id);
+    books.forEach((bookData) => {
+      const book = new Book(bookData.title, bookData.author, bookData.id);
+      tbody.innerHTML += BookManager.createBookElement(book);
     });
   }
 
@@ -21,23 +30,29 @@ class BookManager {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const id = new Date().getTime().toString();
-    const tbody = document.querySelector('#data tbody');
-    tbody.innerHTML += this.createBookElement(title, author, id);
+    const book = new Book(title, author, id);
+
+    const tbody = document.querySelector('tbody');
+    tbody.innerHTML += BookManager.createBookElement(book);
 
     const books = JSON.parse(localStorage.getItem('books')) || [];
-    books.push({ title, author, id });
+    books.push({ title: book.title, author: book.author, id: book.id });
     localStorage.setItem('books', JSON.stringify(books));
   }
 
-  removeBook(id) {
-    const tbody = document.querySelector('#data tbody');
+  static removeBook(id) {
+    const tbody = document.querySelector('tbody');
     const book = document.getElementById(id);
     tbody.removeChild(book);
 
     const books = JSON.parse(localStorage.getItem('books')) || [];
-    const updatedBooks = books.filter((book) => book.id !== id);
+    const updatedBooks = books.filter((bookData) => bookData.id !== id);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
   }
 }
 
 const bookManager = new BookManager();
+
+function removeBookWrapper(id) {
+  BookManager.removeBook(id);
+}
