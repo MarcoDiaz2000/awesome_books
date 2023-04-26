@@ -51,6 +51,10 @@ GitHub & Visual Studio Code
 - Add books with the author
 - Save previously loaded information
 - Add button to be able to remove books individually
+- Add A Navigation bar with three content sections:
+Books list.
+Add book form.
+Contact info.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
