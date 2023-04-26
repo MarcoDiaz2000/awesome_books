@@ -18,7 +18,7 @@ class BookManager {
       </tr>`;
   }
 
-  loadData() {
+  static loadData() {
     const tbody = document.querySelector('tbody');
     const books = JSON.parse(localStorage.getItem('books')) || [];
     books.forEach((bookData) => {
@@ -28,14 +28,12 @@ class BookManager {
   }
 
   addBook() {
-    const title = document.getElementById('title').value;
+    this.title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const id = new Date().getTime().toString();
-    const book = new Book(title, author, id);
-
+    const book = new Book(this.title, author, id);
     const tbody = document.querySelector('tbody');
     tbody.innerHTML += BookManager.createBookElement(book);
-
     const books = JSON.parse(localStorage.getItem('books')) || [];
     books.push({ title: book.title, author: book.author, id: book.id });
     localStorage.setItem('books', JSON.stringify(books));
