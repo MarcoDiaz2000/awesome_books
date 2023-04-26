@@ -1,41 +1,57 @@
-function createBookElement(title, author, id) {
-  return `
-    <div id="${id}">
-      <p>Title: ${title}<br>Author: ${author}</p>
-      <button type="button" onclick="removeBook('${id}')">Remove</button>
-      <hr/>
-    </div>`;
+/*  eslint-disable max-classes-per-file, no-unused-vars */
+class Book {
+  constructor(title, author, id) {
+    this.title = title;
+    this.author = author;
+    this.id = id;
+  }
 }
 
-// eslint-disable-next-line no-unused-vars
-function loadData() {
-  const data = document.getElementById('data');
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  books.forEach((book) => {
-    data.innerHTML += createBookElement(book.title, book.author, book.id);
-  });
+class BookManager {
+  static createBookElement(book) {
+    return `
+      <tr id="${book.id}">
+        <td class="book-info"> "${book.title}" by ${book.author}</td>
+        <td class="remove-button">
+          <button type="button" onclick="removeBookWrapper('${book.id}')">Remove</button>
+        </td>
+      </tr>`;
+  }
+
+  static loadData() {
+    const tbody = document.querySelector('tbody');
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+    books.forEach((bookData) => {
+      const book = new Book(bookData.title, bookData.author, bookData.id);
+      tbody.innerHTML += BookManager.createBookElement(book);
+    });
+  }
+
+  addBook() {
+    this.title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const id = new Date().getTime().toString();
+    const book = new Book(this.title, author, id);
+    const tbody = document.querySelector('tbody');
+    tbody.innerHTML += BookManager.createBookElement(book);
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+    books.push({ title: book.title, author: book.author, id: book.id });
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(id) {
+    const tbody = document.querySelector('tbody');
+    const book = document.getElementById(id);
+    tbody.removeChild(book);
+
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+    const updatedBooks = books.filter((bookData) => bookData.id !== id);
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+  }
 }
 
-// eslint-disable-next-line no-unused-vars
-function addBook() {
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const id = new Date().getTime().toString();
-  const data = document.getElementById('data');
-  data.innerHTML += createBookElement(title, author, id);
+const bookManager = new BookManager();
 
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  books.push({ title, author, id });
-  localStorage.setItem('books', JSON.stringify(books));
-}
-
-// eslint-disable-next-line no-unused-vars
-function removeBook(id) {
-  const data = document.getElementById('data');
-  const book = document.getElementById(id);
-  data.removeChild(book);
-
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  const updatedBooks = books.filter((book) => book.id !== id);
-  localStorage.setItem('books', JSON.stringify(updatedBooks));
+function removeBookWrapper(id) {
+  BookManager.removeBook(id);
 }
