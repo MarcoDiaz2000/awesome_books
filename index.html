@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body onload="bookManager.loadData()">
-    <div class="wrap">
+    <nav id='navBar'>
+        <h1 id="logo">Awesome Books</h1>
+        <ul id="navUl">
+        <li id="lst" onclick="list1">List</li>
+        <li id="addNew">Add new</li>
+        <li id="cont">Contact</li>
+    </ul></nav>
+    <div class="wrap" id="wrapId">
         <h1>All awesome books</h1>
         <table id="data">
             <tbody>
@@ -29,6 +36,18 @@
                 </li>
             </ul>
         </form>
+    </div>
+    <div class="lstClass noLstClass" ID="cntID">
+        <h2 class="cntHeading">Contact information</h2>
+        <section class="cntSection">
+        <p>Do you have any questions or you want to say "Hello"?<br>You can reach out to us</p>
+        <br>
+        <ul>
+            <li>Our e-mail mail@mail.com</li>
+            <li>Our phone number: 0043586534422</li>
+            <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
+    </section>
     </div>
     <script src="js/index.js"></script>
 </body>
