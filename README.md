@@ -13,7 +13,6 @@ Hello, we are:
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
-  - [🔭 Video Presentation](#video)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -22,6 +21,7 @@ Hello, we are:
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
@@ -63,13 +63,6 @@ Contact info.
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://marcodiaz2000.github.io/awesome_books/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## 🔭 Video Presentation <a name="video"></a>
-
-- [Video Presentation](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,11 +119,15 @@ You can deploy this project in this link <a href="https://marcodiaz2000.github.i
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/marco-diaz-0876a7268/)
 
 
-
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+This project is complete, and will have no future features.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -150,6 +147,13 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> I would like to thank Microverse for this opportunity to learn and practice.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
