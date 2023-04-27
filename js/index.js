@@ -103,8 +103,7 @@ function removeBookWrapper(id) {
 }
 
 function displayDate() {
-  document.getElementById("clock").innerHTML = Date();
+  document.getElementById('clock').innerHTML = Date();
 }
 
 setInterval(displayDate, 1000);
-
