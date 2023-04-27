@@ -98,22 +98,13 @@ addBo.addEventListener('click', () => {
   bookManager.addBook1();
 });
 
-function displayDate() {
-  document.getElementById("dateContainer").innerHTML = Date();
-}
-
-document.addEventListener('DOMContentLoaded', displayDate);
-
 function removeBookWrapper(id) {
   BookManager.removeBook(id);
 }
 
-document.addEventListener("DOMContentLoaded", displayDate);
-
-// Actualizar la hora cada segundo
-setInterval(displayDate, 1000);
-
 function displayDate() {
   document.getElementById("clock").innerHTML = Date();
 }
+
+setInterval(displayDate, 1000);
 
