@@ -14,6 +14,10 @@
   align-items: center;
 }
 
+.nowrap {
+  display: none;
+}
+
 h1 {
   padding: 15px;
 }
@@ -70,4 +74,81 @@ hr {
 
 #data tr:nth-child(odd) {
   background-color: #fff;
+}
+
+#navBar {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+#navUl {
+  padding-left: 30px;
+  padding-right: 50px;
+}
+
+#navUl > li {
+  display: inline-block;
+  margin-left: 20px;
+  border-left: 2px solid black;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+}
+
+#navUl > li:first-child {
+  border-left: none;
+}
+
+#logo {
+  display: inline-block;
+}
+
+.t16 {
+  font-size: 18px;
+}
+
+.lstClass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.noLstClass {
+  display: none;
+}
+
+.nobookList {
+  display: none;
+}
+
+.cntSection {
+  margin-top: 40px;
+}
+
+footer {
+  padding: 20px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid #000;
+  margin-top: 100px;
+}
+
+.center {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+}
+
+#clock {
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+  padding-top: 10px;
 }

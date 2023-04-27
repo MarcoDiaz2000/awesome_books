@@ -1,4 +1,7 @@
 /*  eslint-disable max-classes-per-file, no-unused-vars */
+const lst = document.getElementById('lst');
+const cont = document.getElementById('cont');
+const addBo = document.getElementById('addNew');
 class Book {
   constructor(title, author, id) {
     this.title = title;
@@ -37,6 +40,7 @@ class BookManager {
     const books = JSON.parse(localStorage.getItem('books')) || [];
     books.push({ title: book.title, author: book.author, id: book.id });
     localStorage.setItem('books', JSON.stringify(books));
+    alert('Data inserted successfully');
   }
 
   static removeBook(id) {
@@ -48,10 +52,58 @@ class BookManager {
     const updatedBooks = books.filter((bookData) => bookData.id !== id);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
   }
+
+  list1() {
+    this.title = document.getElementById('title').value;
+    document.getElementById('bookListId').classList.add('bookList');
+    document.getElementById('bookListId').classList.remove('nobookList');
+    document.getElementById('wrapId').classList.add('nowrap');
+    document.getElementById('wrapId').classList.remove('wrap');
+    document.getElementById('addNewID').classList.remove('lstClass');
+    document.getElementById('addNewID').classList.add('noLstClass');
+  }
+
+  cnt() {
+    this.title = document.getElementById('title').value;
+    document.getElementById('wrapId').classList.remove('wrap');
+    document.getElementById('wrapId').classList.add('nowrap');
+    document.getElementById('addNewID').classList.add('lstClass');
+    document.getElementById('addNewID').classList.remove('noLstClass');
+    document.getElementById('bookListId').classList.remove('bookList');
+    document.getElementById('bookListId').classList.add('nobookList');
+  }
+
+  addBook1() {
+    this.title = document.getElementById('title').value;
+    document.getElementById('wrapId').classList.remove('nowrap');
+    document.getElementById('wrapId').classList.add('wrap');
+    document.getElementById('addNewID').classList.remove('lstClass');
+    document.getElementById('addNewID').classList.add('noLstClass');
+    document.getElementById('bookListId').classList.remove('bookList');
+    document.getElementById('bookListId').classList.add('nobookList');
+  }
 }
 
 const bookManager = new BookManager();
 
+lst.addEventListener('click', () => {
+  bookManager.list1();
+});
+
+cont.addEventListener('click', () => {
+  bookManager.cnt();
+});
+
+addBo.addEventListener('click', () => {
+  bookManager.addBook1();
+});
+
 function removeBookWrapper(id) {
   BookManager.removeBook(id);
 }
+
+function displayDate() {
+  document.getElementById('clock').innerHTML = Date();
+}
+
+setInterval(displayDate, 1000);
